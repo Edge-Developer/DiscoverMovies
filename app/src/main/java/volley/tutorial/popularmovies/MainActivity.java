@@ -32,14 +32,17 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
     private RecyclerViewAdapter mAdapter;
     private Uri.Builder builder;
     private AccessJson getJSONdata;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.mainactivity_toolbar);
+        toolbar = (Toolbar) findViewById(R.id.mainactivity_toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("Popular Movies");
+
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         int columns = new Utility().CalculateNoOfColumns(this);
@@ -92,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
                 if (!item.isChecked()) {
                     item.setChecked(true);
                 }
+                toolbar.setTitle(getString(R.string.popular_movies_string));
                 MOVIE_TYPE = POPULAR_MOVIE_TYPE;
                 networkCall();
                 break;
@@ -99,14 +103,13 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
                 if (!item.isChecked()) {
                     item.setChecked(true);
                 }
+                toolbar.setTitle(getString(R.string.top_rated_string));
                 MOVIE_TYPE = HIGHLY_RATED_MOVIE_TYPE;
                 networkCall();
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
-
-
 
     @Override
     public void itemClicked(String movieTitle) {
@@ -115,8 +118,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
         startActivity(intent);
     }
 
-    public class Utility {
-        public int CalculateNoOfColumns(Context context) {
+    class Utility {
+        int CalculateNoOfColumns(Context context) {
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
             float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
             int noOfColumnns = (int) (dpWidth / 180);
@@ -124,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
         }
     }
 
-    public class AccessJson {
+    class AccessJson {
         void DownloadJSON(String JSON_URL) {
             StringRequest mStringRequest = new StringRequest(JSON_URL,
                     new Response.Listener<String>() {
