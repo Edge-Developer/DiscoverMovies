@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
                 .appendPath(MOVIE_TYPE)
                 .appendQueryParameter("api_key", API_KEY)
                 .appendQueryParameter("language", LANGUAGE)
-                .appendQueryParameter("page", "" + CURRENT_PAGE);
+                .appendQueryParameter("page", "" +CURRENT_PAGE);
 
         return builder.build().toString();
     }
@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
 
         switch (item.getItemId()) {
 
