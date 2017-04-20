@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/refresh"
+        android:orderInCategory="1"
+        android:title="@string/refresh"
+        app:showAsAction="never"/>
+    <group
+        android:id="@+id/group"
+        android:checkableBehavior="single"
+        android:enabled="true"
+        android:orderInCategory="3">
+        <item
+            android:id="@+id/popular_movies"
+            android:checked="true"
+            android:enabled="true"
+            android:title="@string/popular_movies"/>
+        <item
+            android:id="@+id/top_rated_movies"
+            android:title="@string/top_rated_movies"/>
+    </group>
+</menu>
