@@ -41,8 +41,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
 
         toolbar = (Toolbar) findViewById(R.id.mainactivity_toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle("Popular Movies");
-
+        toolbar.setTitle(getString(R.string.popular_movies_string));
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         int columns = new Utility().CalculateNoOfColumns(this);
