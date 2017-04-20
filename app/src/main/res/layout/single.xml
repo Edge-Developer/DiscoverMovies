@@ -28,8 +28,7 @@
             <com.android.volley.toolbox.NetworkImageView
                 android:id="@+id/movie_poster"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:src="@mipmap/ic_launcher"/>
+                android:layout_height="150dp"/>
         </RelativeLayout>
 
         <TextView

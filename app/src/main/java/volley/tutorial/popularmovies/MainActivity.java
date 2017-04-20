@@ -21,9 +21,9 @@ import com.google.gson.Gson;
 
 public class MainActivity extends AppCompatActivity implements RecyclerViewAdapter.ClickedMovie {
 
-    private final String API_KEY = "";
+    private final String API_KEY = "11f4275ea0f71297a1d33044b675828f";
     private String POPULAR_MOVIE_TYPE = "popular";
-    private String HIGHLY_RATED_MOVIE_TYPE = "top_rated";
+    private String TOP_RATED_MOVIE_TYPE = "top_rated";
     private final String LANGUAGE = "en-US";
     private String MOVIE_TYPE = POPULAR_MOVIE_TYPE;
     private final int CURRENT_PAGE = 1;
@@ -41,18 +41,15 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
 
         toolbar = (Toolbar) findViewById(R.id.mainactivity_toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle(getString(R.string.popular_movies_string));
+        toolbar.setSubtitle(getString(R.string.popular_movies_string));
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         int columns = new Utility().CalculateNoOfColumns(this);
         gridLayout = new GridLayoutManager(MainActivity.this, columns);
         mRecyclerView.setLayoutManager(gridLayout);
         mRecyclerView.setHasFixedSize(true);
-        builder = new Uri.Builder();
-
         mAdapter = new RecyclerViewAdapter(this);
         mRecyclerView.setAdapter(mAdapter);
-
         networkCall();
     }
 
@@ -63,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
     }
 
     private String buildUrl() {
+        builder = new Uri.Builder();
         builder.scheme("https")
                 .authority("api.themoviedb.org")
                 .appendPath("3")
@@ -85,7 +83,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-
         switch (item.getItemId()) {
 
             case R.id.refresh:
@@ -95,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
                 if (!item.isChecked()) {
                     item.setChecked(true);
                 }
-                toolbar.setTitle(getString(R.string.popular_movies_string));
+                toolbar.setSubtitle(getString(R.string.popular_movies_string));
                 MOVIE_TYPE = POPULAR_MOVIE_TYPE;
                 networkCall();
                 break;
@@ -103,8 +100,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
                 if (!item.isChecked()) {
                     item.setChecked(true);
                 }
-                toolbar.setTitle(getString(R.string.top_rated_string));
-                MOVIE_TYPE = HIGHLY_RATED_MOVIE_TYPE;
+                toolbar.setSubtitle(getString(R.string.top_rated_string));
+                MOVIE_TYPE = TOP_RATED_MOVIE_TYPE;
                 networkCall();
                 break;
         }
