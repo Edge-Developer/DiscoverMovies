@@ -22,8 +22,8 @@ import com.google.gson.Gson;
 public class MainActivity extends AppCompatActivity implements RecyclerViewAdapter.ClickedMovie {
 
     private final String API_KEY = "";
-    private String POPULAR_MOVIE_TYPE = "popular";
-    private String TOP_RATED_MOVIE_TYPE = "top_rated";
+    private final String POPULAR_MOVIE_TYPE = "popular";
+    private final String TOP_RATED_MOVIE_TYPE = "top_rated";
     private final String LANGUAGE = "en-US";
     private String MOVIE_TYPE = POPULAR_MOVIE_TYPE;
     private final int CURRENT_PAGE = 1;

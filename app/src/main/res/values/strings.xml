@@ -14,4 +14,5 @@
     <string name="error_message_toast">Error Occurred, Try Refresh</string>
     <string name="top_rated_string">Top Rated Movies</string>
     <string name="popular_movies_string">Popular Movies</string>
+    <string name="dummy_card_title">King Kong</string>
 </resources>
