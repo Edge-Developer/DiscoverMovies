@@ -2,11 +2,11 @@ package volley.tutorial.popularmovies;
 
 import android.content.Context;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.Menu;
@@ -19,42 +19,42 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.google.gson.Gson;
 
+import volley.tutorial.popularmovies.databinding.ActivityMainBinding;
+
 public class MainActivity extends AppCompatActivity implements RecyclerViewAdapter.ClickedMovie {
 
     private final String API_KEY = "";
     private final String POPULAR_MOVIE_TYPE = "popular";
     private final String TOP_RATED_MOVIE_TYPE = "top_rated";
     private final String LANGUAGE = "en-US";
-    private String MOVIE_TYPE = POPULAR_MOVIE_TYPE;
     private final int CURRENT_PAGE = 1;
-    private RecyclerView mRecyclerView;
+    private String MOVIE_TYPE = POPULAR_MOVIE_TYPE;
     private GridLayoutManager gridLayout;
     private RecyclerViewAdapter mAdapter;
     private Uri.Builder builder;
     private AccessJson getJSONdata;
     private Toolbar toolbar;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        final ActivityMainBinding mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        toolbar = (Toolbar) findViewById(R.id.mainactivity_toolbar);
+        toolbar = mBinding.mainactivityToolbar;
         setSupportActionBar(toolbar);
         toolbar.setSubtitle(getString(R.string.popular_movies_string));
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         int columns = new Utility().CalculateNoOfColumns(this);
         gridLayout = new GridLayoutManager(MainActivity.this, columns);
-        mRecyclerView.setLayoutManager(gridLayout);
-        mRecyclerView.setHasFixedSize(true);
+        mBinding.recyclerView.setLayoutManager(gridLayout);
+        mBinding.recyclerView.setHasFixedSize(true);
         mAdapter = new RecyclerViewAdapter(this);
-        mRecyclerView.setAdapter(mAdapter);
+        mBinding.recyclerView.setAdapter(mAdapter);
         networkCall();
     }
 
     private void networkCall() {
-        //dummyData();
         getJSONdata = new AccessJson();
         getJSONdata.DownloadJSON(buildUrl());
     }
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
                 .appendPath(MOVIE_TYPE)
                 .appendQueryParameter("api_key", API_KEY)
                 .appendQueryParameter("language", LANGUAGE)
-                .appendQueryParameter("page", "" +CURRENT_PAGE);
+                .appendQueryParameter("page", "" + CURRENT_PAGE);
 
         return builder.build().toString();
     }
@@ -147,26 +147,4 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
             ConnectionManager.getInstance(MainActivity.this).add(mStringRequest);
         }
     }
-
-   /*public void dummyData(){
-
-       List<Result> movies = new ArrayList<>();
-       Result movie;
-
-       for (int i=0; i<20;i++){
-           movie = new Result(
-                   "/tWqifoYuwLETmmasnGHO7xBjEtt.jpg"
-                   ,getString(R.string.default_overview)
-                   ,"2017-03-16"
-                   ,"Beauty and the Beast"+i
-                   ,150.167688
-                   ,1690
-                   ,6.9);
-
-           movies.add(movie);
-       }
-
-       mAdapter.addMovies(movies);
-       Singleton.getInstance().storeMovies(movies);
-   }*/
 }

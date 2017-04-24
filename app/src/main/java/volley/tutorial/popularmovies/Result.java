@@ -2,6 +2,10 @@ package volley.tutorial.popularmovies;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by OPEYEMI OLORUNLEKE on 4/18/2017.
  */
@@ -47,7 +51,18 @@ public class Result {
     }
 
     public String getReleaseDate() {
-        return releaseDate;
+
+        String dDate = null;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd");
+        try {
+            Date date = simpleDateFormat.parse(releaseDate);
+            simpleDateFormat = new SimpleDateFormat("MMM dd, yyyy");
+            dDate = simpleDateFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return dDate;
     }
 
     public String getOriginalTitle() {
@@ -58,11 +73,14 @@ public class Result {
         return popularity;
     }
 
-    public Integer getVoteCount() {
-        return voteCount;
+    public String getVoteCount() {
+        return  voteCount+" ratings";
     }
 
-    public Double getVoteAverage() {
-        return voteAverage;
+    public float getVoteAverage() {
+        return (float)(voteAverage/2);
+    }
+    public String getVoteAverage1() {
+        return ""+voteAverage/2;
     }
 }

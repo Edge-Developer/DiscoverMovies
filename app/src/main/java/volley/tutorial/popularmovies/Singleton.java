@@ -28,7 +28,7 @@ public class Singleton {
 
     public Result getMovie(String title){
         for (Result movie : mMovies) {
-            if (movie.getOriginalTitle().equals(title)){
+            if (title.equalsIgnoreCase(movie.getOriginalTitle())){
               return movie;
             }
         }
