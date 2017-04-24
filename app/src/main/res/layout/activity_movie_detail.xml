@@ -84,8 +84,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="@dimen/linear_layout_margin_bottom"
+                    android:layout_marginTop="@dimen/linear_layout_margin_top"
                     android:gravity="center">
 
                     <TextView
@@ -93,14 +93,14 @@
                         android:layout_height="match_parent"
                         android:fontFamily="sans-serif-condensed"
                         android:text="@{movie.voteAverage1}"
-                        android:textSize="36sp"
+                        android:textSize="@dimen/rating_textsize_big"
                         android:textStyle="bold"
                         tools:text="3.8"/>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginLeft="@dimen/margin_btwn_big_rating_n_view"
                         android:layout_marginStart="15dp"
                         android:orientation="vertical">
 
@@ -108,7 +108,7 @@
                             style="@style/Base.Widget.AppCompat.RatingBar.Small"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="5dp"
+                            android:layout_marginBottom="@dimen/five_dp"
                             android:rating="@{movie.voteAverage}"
                             tools:rating="3.8"/>
 
@@ -124,10 +124,10 @@
                     <view
                         android:layout_width="1dp"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginEnd="30dp"
-                        android:layout_marginRight="30dp"/>
+                        android:layout_marginLeft="@dimen/view_margin"
+                        android:layout_marginStart="@dimen/view_margin"
+                        android:layout_marginEnd="@dimen/view_margin"
+                        android:layout_marginRight="@dimen/view_margin"/>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -137,7 +137,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Release Date"
+                            android:text="@string/release_date"
                             style="@style/TextAppearance.AppCompat.Medium"/>
 
                         <TextView
