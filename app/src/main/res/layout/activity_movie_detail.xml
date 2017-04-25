@@ -147,8 +147,6 @@
                             style="@style/TextAppearance.AppCompat.Body1"
                             android:textStyle="bold"
                             android:text="@{movie.releaseDate}"/>
-
-
                     </LinearLayout>
 
                 </LinearLayout>
