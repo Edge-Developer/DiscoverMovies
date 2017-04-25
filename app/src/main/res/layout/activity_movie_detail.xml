@@ -6,6 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="movie"
             type="volley.tutorial.popularmovies.Result"/>
@@ -30,6 +31,7 @@
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
                 app:contentScrim="?attr/colorPrimary"
+                app:title="@{movie.originalTitle}"
                 app:expandedTitleMarginEnd="@dimen/collapsing_toolbar_expanded_title_margin_end"
                 app:expandedTitleMarginStart="@dimen/collapsing_toolbar_expanded_title_margin_start"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
@@ -83,10 +85,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_marginBottom="@dimen/linear_layout_margin_bottom"
                     android:layout_marginTop="@dimen/linear_layout_margin_top"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -100,53 +102,59 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/margin_btwn_big_rating_n_view"
-                        android:layout_marginStart="15dp"
-                        android:orientation="vertical">
+                        android:layout_marginLeft="@dimen/movie_detail_half_padding"
+                        android:layout_marginStart="@dimen/movie_detail_half_padding"
+                        android:orientation="vertical"
+                        android:layout_gravity="center">
 
                         <android.support.v7.widget.AppCompatRatingBar
                             style="@style/Base.Widget.AppCompat.RatingBar.Small"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/five_dp"
+                            android:layout_marginBottom="@dimen/movie_detail_rating_bar_margin_bottom"
                             android:rating="@{movie.voteAverage}"
                             tools:rating="3.8"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed"
                             android:text="@{movie.voteCount}"
                             android:textStyle="bold"
                             tools:text="4,900 ratings"/>
 
                     </LinearLayout>
 
-                    <view
-                        android:layout_width="1dp"
+                    <View
+                        android:layout_width="@dimen/view_layout_width"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/view_margin"
-                        android:layout_marginStart="@dimen/view_margin"
                         android:layout_marginEnd="@dimen/view_margin"
-                        android:layout_marginRight="@dimen/view_margin"/>
+                        android:layout_marginLeft="@dimen/view_margin"
+                        android:layout_marginRight="@dimen/view_margin"
+                        android:layout_marginStart="@dimen/view_margin"
+                        android:background="#dadada"/>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:orientation="vertical">
 
                         <TextView
+                            style="@style/TextAppearance.AppCompat.Medium"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/release_date"
-                            style="@style/TextAppearance.AppCompat.Medium"/>
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@string/release_date"/>
 
                         <TextView
+                            style="@style/TextAppearance.AppCompat.Body1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            tools:text="October 12, 2016"
-                            style="@style/TextAppearance.AppCompat.Body1"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@{movie.releaseDate}"
                             android:textStyle="bold"
-                            android:text="@{movie.releaseDate}"/>
+                            tools:text="October 12, 2016"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -160,7 +168,7 @@
                     android:layout_marginRight="@dimen/zero_dp"
                     android:layout_marginStart="@dimen/movie_detail_padding"
                     android:fontFamily="sans-serif-condensed"
-                    tools:text="@string/overview"/>
+                    android:text="@string/overview"/>
 
                 <TextView
                     android:id="@+id/movie_plot"
@@ -173,8 +181,8 @@
                     android:paddingRight="@dimen/movie_detail_padding"
                     android:paddingStart="@dimen/movie_detail_padding"
                     android:paddingTop="@dimen/movie_detail_half_padding"
-                    android:textSize="@dimen/movie_detail_text_size"
                     android:text="@{movie.overview}"
+                    android:textSize="@dimen/movie_detail_text_size"
                     tools:text="@string/default_overview"/>
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>

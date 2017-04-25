@@ -20,6 +20,7 @@
     <dimen name="linear_layout_margin_bottom">20dp</dimen>
     <dimen name="rating_textsize_big">36sp</dimen>
     <dimen name="margin_btwn_big_rating_n_view">15dp</dimen>
-    <dimen name="five_dp">5dp</dimen>
+    <dimen name="movie_detail_rating_bar_margin_bottom">4dp</dimen>
     <dimen name="view_margin">30dp</dimen>
+    <dimen name="view_layout_width">1dp</dimen>
 </resources>

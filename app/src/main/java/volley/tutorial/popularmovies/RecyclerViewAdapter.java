@@ -88,8 +88,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
             movieTitle.setText(movie.getOriginalTitle());
 
-            float rating = (float) (movie.getVoteAverage() / 2);
-            mRatingBar.setRating(rating);
+            mRatingBar.setRating(movie.getVoteAverage());
 
         }
 
