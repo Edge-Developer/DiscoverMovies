@@ -1,4 +1,4 @@
-package volley.tutorial.popularmovies;
+package volley.tutorial.popularmovies.POJO;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -7,11 +7,16 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import io.realm.RealmObject;
+
 /**
  * Created by OPEYEMI OLORUNLEKE on 4/18/2017.
  */
 
-public class Result {
+public class Result extends RealmObject{
+
+//    private long id;
+
     @SerializedName("poster_path")
     private String posterPath;
 
@@ -30,14 +35,8 @@ public class Result {
     @SerializedName("vote_average")
     private Double voteAverage;
 
-    public Result(String posterPath, String overview, String releaseDate, String originalTitle, Integer voteCount, Double voteAverage) {
-        this.posterPath = posterPath;
-        this.overview = overview;
-        this.releaseDate = releaseDate;
-        this.originalTitle = originalTitle;
-        this.voteCount = voteCount;
-        this.voteAverage = voteAverage;
-    }
+    @SerializedName("id")
+    private Double movieId;
 
     public String getPosterPath() {
         return posterPath;
@@ -71,34 +70,59 @@ public class Result {
         return  formatter.format(voteCount)+" ratings";
     }
 
+    public int getVoteCountInt() {
+        return voteCount;
+    }
+
     public float getVoteAverage() {
         return (float)(voteAverage/2);
+    }
+    public double getVoteAverageDouble() {
+        return voteAverage;
     }
     public String getVoteAverage1() {
 
         DecimalFormat df = new DecimalFormat("###.##");
         return ""+df.format(voteAverage/2);
     }
-}
 
-/*
-package com.mkyong;
-
-        import java.text.DecimalFormat;
-
-public class RoundValue
-{
-    public static void main(String[] args)
-    {
-
-        double kilobytes = 1205.6358;
-
-        System.out.println("kilobytes : " + kilobytes);
-
-        double newKB = Math.round(kilobytes*100.0)/100.0;
-        System.out.println("kilobytes (Math.round) : " + newKB);
-
-        DecimalFormat df = new DecimalFormat("###.##");
-        System.out.println("kilobytes (DecimalFormat) : " + df.format(kilobytes));
+    public Double getMovieId() {
+        return movieId;
     }
-}*/
+
+    public void setPosterPath(String posterPath) {
+        this.posterPath = posterPath;
+    }
+
+    public void setOverview(String overview) {
+        this.overview = overview;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public void setOriginalTitle(String originalTitle) {
+        this.originalTitle = originalTitle;
+    }
+
+    public void setVoteCount(Integer voteCount) {
+        this.voteCount = voteCount;
+    }
+
+    public void setVoteAverage(Double voteAverage) {
+        this.voteAverage = voteAverage;
+    }
+
+    public void setMovieId(Double movieId) {
+        this.movieId = movieId;
+    }
+
+//    public long getId() {
+//        return id;
+//    }
+//
+//    public void setId(long id) {
+//        this.id = id;
+//    }
+}

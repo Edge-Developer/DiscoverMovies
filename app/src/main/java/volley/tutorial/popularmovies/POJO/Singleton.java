@@ -1,4 +1,4 @@
-package volley.tutorial.popularmovies;
+package volley.tutorial.popularmovies.POJO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,9 +26,18 @@ public class Singleton {
         mMovies = movies;
     }
 
-    public Result getMovie(String title){
+    /*public Result getMovie(String title){
         for (Result movie : mMovies) {
             if (title.equalsIgnoreCase(movie.getOriginalTitle())){
+              return movie;
+            }
+        }
+        return null;
+    }*/
+
+    public Result getMovie(double id){
+        for (Result movie : mMovies) {
+            if (id == movie.getMovieId()){
               return movie;
             }
         }

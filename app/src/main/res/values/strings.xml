@@ -5,11 +5,16 @@
     <string name="default_overview">A live-action adaptation of Disney\'s version of the classic \'Beauty and the Beast\' tale of a cursed prince and a beautiful young woman who helps him break the spell.A live-action adaptation of Disney\'s version of the classic \'Beauty and the Beast\' tale of a cursed prince and a beautiful young woman who helps him break the spell.A live-action adaptation of Disney\'s version of the classic \'Beauty and the Beast\' tale of a cursed prince and a beautiful young woman who helps him break the spell.</string>
     <string name="release_date">Release Date</string>
     <string name="overview">Overview</string>
-    <string name="content_desc">Movie Poster</string>
+    <string name="content_desc">Movie Tnumbnail</string>
     <string name="top_rated_movies">Top Rated Movies</string>
     <string name="popular_movies">Popular Movies</string>
     <string name="error_message_toast">Error Occurred, Try Refresh</string>
-    <string name="top_rated_string">Top Rated Movies</string>
-    <string name="popular_movies_string">Popular Movies</string>
+    <string name="top_rated">Top Rated Movies</string>
     <string name="dummy_card_title">King Kong</string>
+    <string name="favorite_movies">Favorite Movies</string>
+    <string name="retry_button">Retry</string>
+    <string name="favorite">Favorite</string>
+    <string name="added_to_fav">Movie Added To Favorites</string>
+    <string name="reviews">Reviews</string>
+    <string name="trailer">Trailer</string>
 </resources>

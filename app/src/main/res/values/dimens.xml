@@ -11,7 +11,7 @@
     <dimen name="collapsing_toolbar_expanded_title_margin_end">24dp</dimen>
     <dimen name="collapsing_toolbar_expanded_title_margin_start">8dp</dimen>
     <dimen name="movie_detail_text_size">18sp</dimen>
-    <dimen name="appbar_layout_height">290dp</dimen>
+    <dimen name="appbar_layout_height">256dp</dimen>
     <dimen name="zero_dp">0dp</dimen>
     <dimen name="movie_detail_padding">16dp</dimen>
     <dimen name="movie_detail_half_padding">8dp</dimen>
@@ -23,4 +23,6 @@
     <dimen name="movie_detail_rating_bar_margin_bottom">4dp</dimen>
     <dimen name="view_margin">30dp</dimen>
     <dimen name="view_layout_width">1dp</dimen>
+    <dimen name="detail_backdrop_height">82dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

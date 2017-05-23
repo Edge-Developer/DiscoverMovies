@@ -1,4 +1,4 @@
-package volley.tutorial.popularmovies;
+package volley.tutorial.popularmovies.POJO;
 
 import com.google.gson.annotations.SerializedName;
 

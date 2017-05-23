@@ -13,12 +13,15 @@
         android:enabled="true"
         android:orderInCategory="3">
         <item
-            android:id="@+id/popular_movies"
+            android:id="@+id/favorite_movies"
             android:checked="true"
-            android:enabled="true"
+            android:title="@string/favorite_movies"/>
+        <item
+            android:id="@+id/popular_movies"
             android:title="@string/popular_movies"/>
         <item
             android:id="@+id/top_rated_movies"
             android:title="@string/top_rated_movies"/>
+
     </group>
 </menu>

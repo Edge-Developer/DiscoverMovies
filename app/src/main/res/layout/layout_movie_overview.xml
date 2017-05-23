@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="movie"
+            type="volley.tutorial.popularmovies.POJO.Result"/>
+    </data>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingEnd="@dimen/movie_detail_padding"
+            android:paddingLeft="@dimen/movie_detail_padding"
+            android:paddingRight="@dimen/movie_detail_padding"
+            android:paddingStart="@dimen/movie_detail_padding"
+            android:paddingBottom="@dimen/movie_detail_padding">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:text="@{movie.originalTitle}"
+                android:paddingTop="8dp"
+                style="@style/Base.TextAppearance.AppCompat.Title"
+                tools:text="The Beauty and The Beast"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/linear_layout_margin_bottom"
+                android:layout_marginTop="@dimen/linear_layout_margin_top"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-condensed"
+                    tools:text="3.8"
+                    android:text="@{movie.voteAverage1}"
+                    android:textSize="@dimen/rating_textsize_big"
+                    android:textStyle="bold"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/movie_detail_half_padding"
+                    android:layout_marginStart="@dimen/movie_detail_half_padding"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatRatingBar
+                        style="@style/Base.Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:rating="@{movie.voteAverage}"
+                        android:layout_marginBottom="@dimen/movie_detail_rating_bar_margin_bottom"
+                        tools:rating="3.8"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        tools:text="4,900 ratings"
+                        android:text="@{movie.voteCount}"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="@dimen/view_layout_width"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/view_margin"
+                    android:layout_marginLeft="@dimen/view_margin"
+                    android:layout_marginRight="@dimen/view_margin"
+                    android:layout_marginStart="@dimen/view_margin"
+                    android:background="#dadada"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/release_date"/>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Body1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@{movie.releaseDate}"
+                        tools:text="October 12, 2016"
+                        android:textStyle="bold"/>
+                    <!---->
+                </LinearLayout>
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/movie_plot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:lineSpacingExtra="@dimen/movie_detail_overview_line_space_extra"
+                android:paddingEnd="@dimen/movie_detail_padding"
+                android:paddingLeft="@dimen/movie_detail_padding"
+                android:paddingRight="@dimen/movie_detail_padding"
+                android:paddingStart="@dimen/movie_detail_padding"
+                android:paddingTop="@dimen/movie_detail_half_padding"
+                tools:text="@string/default_overview"
+                android:text="@{movie.overview}"
+                android:textSize="@dimen/movie_detail_text_size"/>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</layout>

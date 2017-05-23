@@ -1,4 +1,4 @@
-package volley.tutorial.popularmovies;
+package volley.tutorial.popularmovies.Connection;
 
 import android.content.Context;
 import android.graphics.Bitmap;
