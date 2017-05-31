@@ -14,7 +14,8 @@
     <string name="favorite_movies">Favorite Movies</string>
     <string name="retry_button">Retry</string>
     <string name="favorite">Favorite</string>
-    <string name="added_to_fav">Movie Added To Favorites</string>
+    <string name="added_to_fav">Successfully Added To Favorites</string>
     <string name="reviews">Reviews</string>
     <string name="trailer">Trailer</string>
+    <string name="already_added_to_fav">Movie Already Added!</string>
 </resources>

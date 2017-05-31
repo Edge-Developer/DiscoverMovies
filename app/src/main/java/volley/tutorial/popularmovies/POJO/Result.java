@@ -7,15 +7,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import io.realm.RealmObject;
-
 /**
  * Created by OPEYEMI OLORUNLEKE on 4/18/2017.
  */
 
-public class Result extends RealmObject{
+public class Result{
 
-//    private long id;
 
     @SerializedName("poster_path")
     private String posterPath;
@@ -36,7 +33,7 @@ public class Result extends RealmObject{
     private Double voteAverage;
 
     @SerializedName("id")
-    private Double movieId;
+    private int movieId;
 
     public String getPosterPath() {
         return posterPath;
@@ -67,7 +64,7 @@ public class Result extends RealmObject{
     public String getVoteCount() {
 
         DecimalFormat formatter = new DecimalFormat("#,###");
-        return  formatter.format(voteCount)+" ratings";
+        return formatter.format(voteCount) + " ratings";
     }
 
     public int getVoteCountInt() {
@@ -75,18 +72,20 @@ public class Result extends RealmObject{
     }
 
     public float getVoteAverage() {
-        return (float)(voteAverage/2);
+        return (float) (voteAverage / 2);
     }
+
     public double getVoteAverageDouble() {
         return voteAverage;
     }
+
     public String getVoteAverage1() {
 
         DecimalFormat df = new DecimalFormat("###.##");
-        return ""+df.format(voteAverage/2);
+        return "" + df.format(voteAverage / 2);
     }
 
-    public Double getMovieId() {
+    public int getMovieId() {
         return movieId;
     }
 
@@ -114,15 +113,7 @@ public class Result extends RealmObject{
         this.voteAverage = voteAverage;
     }
 
-    public void setMovieId(Double movieId) {
+    public void setMovieId(int movieId) {
         this.movieId = movieId;
     }
-
-//    public long getId() {
-//        return id;
-//    }
-//
-//    public void setId(long id) {
-//        this.id = id;
-//    }
 }

@@ -29,11 +29,13 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieHolde
     private final Context context;
     private List<Result> mMovieResults;
     private ClickedMovie clicked_movie;
+    private boolean mState;
 
-    public MoviesAdapter(Context context) {
+    public MoviesAdapter(Context context, boolean state) {
         this.context = context;
         mMovieResults = new ArrayList<>();
         clicked_movie = (ClickedMovie) context;
+        mState = state;
     }
 
     @Override
@@ -60,7 +62,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieHolde
     }
 
     public interface ClickedMovie {
-        void itemClicked(double movieID);
+        void itemClicked(double movieID, boolean state);
     }
 
     public class MovieHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -88,7 +90,11 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieHolde
 
         @Override
         public void onClick(View v) {
-            clicked_movie.itemClicked(movie.getMovieId());
+            clicked_movie.itemClicked(movie.getMovieId(), mState);
         }
+    }
+
+    public void setState(boolean state) {
+        mState = state;
     }
 }
