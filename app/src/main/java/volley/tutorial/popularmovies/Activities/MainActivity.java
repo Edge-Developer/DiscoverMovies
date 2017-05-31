@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements MoviesAdapter.Cli
 
         db_helper = new DB_Helper(this);
 
+
         toolbar = mBinding.mainactivityToolbar;
         setSupportActionBar(toolbar);
 
